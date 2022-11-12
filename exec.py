@@ -14,6 +14,7 @@ cv2.imwrite("test.png", image)
 data = pytesseract.image_to_string(Image.open('test.png')).split(" ")
 prev = 0
 i = 0
+do = ""
 while(True):
     var = random.randint(0, len(data)-3)
     proc = []
@@ -24,10 +25,11 @@ while(True):
     procX = ' '.join(proc)
     testimonial = TextBlob(procX)
     if prev < testimonial.sentiment.subjectivity:
+        do = procB
         prev = testimonial.sentiment.subjectivity
         i=0
     if i >= 9000:
-        os.system("start http://www.google.com/search?q=" + procB)
+        os.system("start http://www.google.com/search?q=" + do)
         break
     i+=1
         
