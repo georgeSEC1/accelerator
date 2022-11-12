@@ -24,11 +24,11 @@ while(True):
     procB = '+'.join(proc)
     procX = ' '.join(proc)
     testimonial = TextBlob(procX)
-    if prev < testimonial.sentiment.subjectivity:
+    if prev < testimonial.sentiment.subjectivity and len(procB) > 0:
         do = procB
         prev = testimonial.sentiment.subjectivity
         i=0
-    if i >= 9000:
+    if i >= 9000 and len(do) > 0:
         os.system("start http://www.google.com/search?q=" + do)
         break
     i+=1
