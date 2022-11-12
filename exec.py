@@ -14,9 +14,6 @@ data = pytesseract.image_to_string(Image.open('test.png')).split(" ")
 var = random.randint(0, len(data)-2)
 proc = []
 proc.append(data[var])
-proc.append(data[var])
+proc.append(data[var+1])
 procB = '+'.join(proc)
 os.system("start http://www.google.com/search?q=" + procB)
- 
-
-
