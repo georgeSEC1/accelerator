@@ -32,6 +32,9 @@ while(True):
         os.system("start http://www.google.com/search?q=" + do)
         break
     i+=1
+    if i >= 10000:
+        break
+    
         
 
 
