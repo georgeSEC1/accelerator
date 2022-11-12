@@ -15,17 +15,18 @@ data = pytesseract.image_to_string(Image.open('test.png')).split(" ")
 prev = 0
 i = 0
 while(True):
-    var = random.randint(0, len(data)-2)
+    var = random.randint(0, len(data)-3)
     proc = []
     proc.append(data[var])
     proc.append(data[var+1])
+    proc.append(data[var+2])
     procB = '+'.join(proc)
     procX = ' '.join(proc)
     testimonial = TextBlob(procX)
-    if prev < testimonial.sentiment.polarity:
-        prev = testimonial.sentiment.polarity
+    if prev < testimonial.sentiment.subjectivity:
+        prev = testimonial.sentiment.subjectivity
         i=0
-    if i >= 1280:
+    if i >= 9000:
         os.system("start http://www.google.com/search?q=" + procB)
         break
     i+=1
